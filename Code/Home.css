@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Gabarito', sans-serif;
+    background-color: #FFFFFF;
+    color: #333333;
+    /* YEH LINE HORIZONTAL SCROLL KO FIX KAR DEGI */
+    overflow-x: hidden;
+}
+
+.page-container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #FFFFFF;
+    padding: 0.9375rem 8%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 2.9rem;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2.1875rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #B22222;
+}
+
+.support-us-btn {
+    background-color: #B22222;
+    color: #FFFFFF !important;
+    padding: 0.6em 1.20em;
+    border-radius: 0.5rem;
+    border: 2px solid #B22222;
+    transition: all 0.3s ease;
+}
+
+.support-us-btn:hover {
+    background-color: #ffffff;
+    color: #B22222 !important;
+    border-color: #B22222;
+}
+
+.hero-section {
+    position: relative;
+    text-align: center;
+    background-color: #B22222;
+    background-image: url('../Docs/—Pngtree—gray raindrops background a natural_15485922.png');
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 23rem;
+    padding-bottom: 5rem;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -24rem;
+    width: 150%;
+    height: 30rem;
+    background: #FFFFFF;
+    border-bottom-left-radius: 100% 200%;
+    border-bottom-right-radius: 100% 200%;
+}
+
+.hero-content {
+    position: absolute;
+    top: 12rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 90%;
+    max-width: 46.875rem;
+    color: #333333;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to bottom, #B22222 50%, #FFFFFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-content p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+.hero-buttons {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: 0.8em 2em;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: 2px solid #FFFFFF;
+}
+
+.btn-request {
+    background-color: rgb(255, 255, 255);
+    color: #B22222;
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-request:hover {
+    background-color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.btn-donate {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+.btn-donate:hover {
+    background-color: #FFFFFF;
+    color: #B22222;
+    transform: translateY(-2px);
+}

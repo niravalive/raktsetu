@@ -1,0 +1,133 @@
+/* =================================
+   GENERAL STYLES
+==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gabarito', sans-serif;
+    background-color: #f9f9f9;
+    color: #333333;
+}
+
+.page-container {
+    min-height: 100vh;
+}
+
+/* =================================
+   HEADER
+==================================== */
+.header {
+    background-color: #FFFFFF;
+    padding: 0.9375rem 8%;
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky; top: 0; z-index: 1000;
+}
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.logo a { display: flex; }
+.logo img { height: 2.5rem; }
+.main-nav ul { list-style: none; display: flex; align-items: center; gap: 2.1875rem; }
+.main-nav a { text-decoration: none; color: #333333; font-weight: 700; font-size: 1rem; transition: color 0.3s ease; }
+.main-nav a:hover { color: #B22222; }
+.support-us-btn { background-color: #B22222; color: #FFFFFF !important; padding: 0.6em 1.20em; border-radius: 0.5rem; border: 2px solid #B22222; transition: all 0.3s ease; }
+.support-us-btn:hover { background-color: #ffffff; color: #B22222 !important; }
+
+/* =================================
+   MAIN CONTENT & FORM
+==================================== */
+.main-content {
+    padding: 3rem 8%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-container {
+    background: #FFFFFF;
+    padding: 2.5rem 3rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+.form-header { text-align: center; margin-bottom: 2.5rem; }
+.form-header h1 { font-size: 2.5rem; color: #B22222; margin-bottom: 0.75rem; }
+.form-header p { font-size: 1.1rem; color: #555; max-width: 600px; margin: 0 auto; }
+
+.form-section { margin-bottom: 2rem; }
+.form-section h3 { font-size: 1.25rem; margin-bottom: 1.5rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 0.5rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.form-group { display: flex; flex-direction: column; }
+.form-group label { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+.form-group input, .form-group select { padding: 0.75rem; font-size: 1rem; font-family: 'Gabarito', sans-serif; border: 1px solid #ddd; border-radius: 0.5rem; transition: border-color 0.3s ease; }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: #B22222; }
+
+/* Checkbox ke liye special styling */
+.form-group-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    position: relative; /* Custom checkbox ke liye zaroori */
+    cursor: pointer;
+}
+.form-group-checkbox input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+.form-group-checkbox label {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #555;
+    padding-left: 2rem; /* Naye box ke liye jagah banayi */
+}
+
+.form-group-checkbox label::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid #ddd;
+    background: #fff;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+}
+
+.form-group-checkbox input[type="checkbox"]:checked + label::before {
+    background-color: #B22222;
+    border-color: #B22222;
+}
+
+/* Naya custom checkmark (tick) banaya */
+.form-group-checkbox label::after {
+    content: '';
+    position: absolute;
+    left: 1.4rem;
+    top: 1.2rem;
+    width: 0.3rem;
+    height: 0.7rem;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    opacity: 0; /* Shuru me hide rakha */
+    transition: opacity 0.2s ease;
+}
+
+/* Jab check ho, to checkmark dikhao */
+.form-group-checkbox input[type="checkbox"]:checked + label::after {
+    opacity: 1;
+}
+
+
+.submit-btn { display: block; width: 100%; padding: 1rem; font-size: 1.1rem; font-weight: 700; color: #FFFFFF; background-color: #B22222; border: none; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; margin-top: 1rem; }
+.submit-btn:hover { background-color: #c82828; transform: translateY(-2px); }

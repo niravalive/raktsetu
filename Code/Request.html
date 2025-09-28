@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Donors - RaktSetu</title>
+    <link rel="stylesheet" href="Request.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="./Home.html">
+                        <img src="../Docs/RaktSetu Logo red.png" alt="RaktSetu Logo">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="./Contact.html">Contact</a></li>
+                        <li><a href="./About.html">About</a></li>
+                        <li><a href="./support.html" class="support-us-btn">Support Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="filter-bar">
+                <div class="search-input-group">
+                    <input type="text" placeholder="Search your requirement">
+                    <button class="search-icon-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+                    </button>
+                </div>
+                <select><option>Blood Type</option></select>
+                <select><option>City</option></select>
+                <select><option>State</option></select>
+                <select><option>Sort by</option></select>
+            </section>
+
+            <section class="results-container">
+                <div class="results-category">
+                    <h2>Best hospitals near you</h2>
+                    <div class="card-grid">
+                        <div class="donor-card hospital-card">
+                            <div class="card-header">
+                                <h3 class="donor-name">City Hospital</h3>
+                                <div class="rating"><span>4.5</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg></div>
+                            </div>
+                            <p class="location">Adajan, Surat</p>
+                            <div class="blood-info"><span>O+: Available</span><span>A-: Low Stock</span></div>
+                            <a href="#" class="contact-btn">Contact Hospital</a>
+                        </div>
+                        <div class="donor-card hospital-card">
+                            <div class="card-header"><h3 class="donor-name">Life Care Blood Bank</h3><div class="rating"><span>4.8</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg></div></div>
+                            <p class="location">Varachha, Surat</p>
+                            <div class="blood-info"><span>B+: Available</span><span>AB+: Available</span></div>
+                            <a href="#" class="contact-btn">Contact Hospital</a>
+                        </div>
+                         <div class="donor-card hospital-card">
+                            <div class="card-header"><h3 class="donor-name">Unity Hospital</h3><div class="rating"><span>4.2</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg></div></div>
+                            <p class="location">Vesu, Surat</p>
+                            <div class="blood-info"><span>All Groups</span></div>
+                            <a href="#" class="contact-btn">Contact Hospital</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-category">
+                    <h2>Best individuals near you</h2>
+                    <div class="card-grid">
+                        <div class="donor-card individual-card">
+                            <div class="card-header"><h3 class="donor-name">Nirav C.</h3><span class="blood-type">A+</span></div>
+                            <p class="location">Adajan, Surat</p>
+                            <div class="blood-info"><p>Available for Donation</p></div>
+                            <a href="#" class="contact-btn">Send Request</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

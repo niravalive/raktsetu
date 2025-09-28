@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Blood - RaktSetu</title>
+    <link rel="stylesheet" href="Donate.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="./Home.html">
+                        <img src="../Docs/RaktSetu Logo red.png" alt="Logo">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="./About.html">About</a></li>
+                        <li><a href="./Support.html" class="support-us-btn">Support Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="form-container">
+                <div class="form-header">
+                    <h1>Become a Lifesaver</h1>
+                    <p>Your decision to donate blood can save a life. Please provide the following details to register as a donor.</p>
+                </div>
+
+                <form class="donation-form">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-row">
+                            <div class="form-group"><label for="full-name">Full Name</label><input type="text" id="full-name" required></div>
+                            <div class="form-group"><label for="contact-number">Contact Number</label><input type="tel" id="contact-number" required></div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Medical Information</h3>
+                        <div class="form-row">
+                            <div class="form-group"><label for="blood-group">Blood Group</label><select id="blood-group" required><option value="">Select</option><option value="A+">A+</option><option value="A-">A-</option><option value="B+">B+</option><option value="B-">B-</option><option value="AB+">AB+</option><option value="AB-">AB-</option><option value="O+">O+</option><option value="O-">O-</option></select></div>
+                            <div class="form-group"><label for="last-donation">Last Donation Date</label><input type="date" id="last-donation"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Your Availability</h3>
+                        <div class="form-row">
+                            <div class="form-group"><label for="available-from">Available From</label><input type="date" id="available-from" required></div>
+                            <div class="form-group"><label for="available-till">Available Till</label><input type="date" id="available-till" required></div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Location Information</h3>
+                        <div class="form-row">
+                            <div class="form-group"><label for="city">City</label><input type="text" id="city" value="Surat" required></div>
+                            <div class="form-group"><label for="area">Area / Pincode</label><input type="text" id="area" placeholder="e.g., Adajan or 395009" required></div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Health Declaration</h3>
+                        <div class="form-group-checkbox">
+                            <input type="checkbox" id="health-confirm" required>
+                            <label for="health-confirm">I confirm that I am healthy, above 18 years of age, and meet the basic eligibility criteria for blood donation.</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Register as Donor</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

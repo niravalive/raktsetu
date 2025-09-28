@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gabarito', sans-serif;
+    background-color: #f9f9f9;
+    color: #333333;
+}
+
+.page-container {
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background-color: #FFFFFF;
+    padding: 0.9375rem 8%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    display: flex; /* Ensures image inside link behaves well */
+}
+.logo img {
+    height: 2.5rem;
+}
+
+.main-nav ul { list-style: none; display: flex; align-items: center; gap: 2.1875rem; }
+.main-nav a { text-decoration: none; color: #333333; font-weight: 700; font-size: 1rem; transition: color 0.3s ease; }
+.main-nav a:hover { color: #B22222; }
+.support-us-btn { background-color: #B22222; color: #FFFFFF !important; padding: 0.6em 1.20em; border-radius: 0.5rem; border: 2px solid #B22222; transition: all 0.3s ease; }
+.support-us-btn:hover { background-color: #ffffff; color: #B22222 !important; }
+
+/* Filter Bar */
+.filter-bar { background-color: #B22222; padding: 1rem 8%; display: flex; align-items: center; gap: 1rem; }
+.search-input-group { flex-grow: 1; position: relative; }
+.search-input-group input { width: 100%; padding: 0.75rem; padding-right: 3rem; border-radius: 0.5rem; border: none; font-size: 1rem; font-family: 'Gabarito', sans-serif; }
+.search-icon-btn { position: absolute; right: 5px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; padding: 0.5rem; }
+.search-icon-btn svg { width: 24px; height: 24px; color: #555; }
+.filter-bar select { padding: 0.75rem 1rem; border-radius: 0.5rem; border: none; font-family: 'Gabarito', sans-serif; font-size: 1rem; background-color: #FFFFFF; }
+
+/* Results */
+.results-container { padding: 3rem 8%; }
+.results-category { margin-bottom: 3rem; }
+.results-category h2 { font-size: 1.75rem; margin-bottom: 1.5rem; color: #333; }
+.card-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+
+.donor-card {
+    background: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-top: 4px solid #B22222;
+    transition: all 0.3s ease;
+}
+.donor-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+.individual-card { border-top-color: #555; }
+
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+.donor-name { font-size: 1.25rem; font-weight: 700; }
+.rating { display: flex; align-items: center; gap: 0.25rem; font-weight: 700; color: #f5a623; }
+.rating svg { width: 18px; height: 18px; }
+.blood-type { background: #f0f0f0; color: #333; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-weight: 700; font-size: 0.9rem; }
+.location { font-size: 0.9rem; color: #777; margin-bottom: 1rem; }
+.blood-info { margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.blood-info span { background: #fde8e8; color: #B22222; padding: 0.25rem 0.75rem; border-radius: 1rem; }
+.individual-card .blood-info p { font-weight: 700; color: #333; }
+
+.contact-btn {
+    display: block; width: 100%; text-align: center; background: #B22222; color: #FFFFFF;
+    padding: 0.75rem; border-radius: 0.5rem; text-decoration: none; font-weight: 700;
+    transition: all 0.3s ease;
+}
+.individual-card .contact-btn { background: #333333; }
+.contact-btn:hover { opacity: 0.85; }
