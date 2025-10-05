@@ -1,0 +1,9 @@
+[build]
+  command = "# no build command"
+  publish = "Code"
+  functions = "backend/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

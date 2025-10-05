@@ -15,8 +15,8 @@
         <header class="header">
             <div class="header-content">
                 <div class="logo">
-                    <a href="./Home.html">
-                        <img src="../Docs/RaktSetu Logo red.png" alt="Logo">
+                    <a href="./index.html">
+                        <img src="assets/RaktSetu Logo red.png" alt="Logo">
                     </a>
                 </div>
                 <nav class="main-nav">
@@ -48,8 +48,30 @@
                     <div class="form-section">
                         <h3>Medical Information</h3>
                         <div class="form-row">
-                            <div class="form-group"><label for="blood-group">Blood Group</label><select id="blood-group" required><option value="">Select</option><option value="A+">A+</option><option value="A-">A-</option><option value="B+">B+</option><option value="B-">B-</option><option value="AB+">AB+</option><option value="AB-">AB-</option><option value="O+">O+</option><option value="O-">O-</option></select></div>
-                            <div class="form-group"><label for="last-donation">Last Donation Date</label><input type="date" id="last-donation"></div>
+                            <div class="form-group">
+                                <label for="blood-group">Blood Group</label>
+                                    <select id="blood-group" required>
+                                        <option value="">Select</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                    </select>
+                            </div>
+                        
+                       
+                            <div class="form-group">
+                                <label for="disease">Any disease ?</label>
+                                    <select id="disease">
+                                        <option value="">Select</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                            </div>
                         </div>
                     </div>
                     
@@ -64,8 +86,10 @@
                     <div class="form-section">
                         <h3>Location Information</h3>
                         <div class="form-row">
+                            <div class="form-group"><label for="state">State</label><input type="text" id="state" value="Gujarat" required></div>
                             <div class="form-group"><label for="city">City</label><input type="text" id="city" value="Surat" required></div>
                             <div class="form-group"><label for="area">Area / Pincode</label><input type="text" id="area" placeholder="e.g., Adajan or 395009" required></div>
+                            <div class="form-group"><label for="landmark">Landmark (Optional)</label><input type="text" id="landmark" placeholder="e.g., behind white house"></div>
                         </div>
                     </div>
 
@@ -82,5 +106,61 @@
             </div>
         </main>
     </div>
+    <script>
+        // Step 1: Form ko select kiya
+        const donationForm = document.querySelector('.donation-form');
+
+        // Step 2: Form submit hone par event listener lagaya
+        donationForm.addEventListener('submit', (event) => {
+            // Browser ko page reload karne se roka
+            event.preventDefault();
+
+            // Step 3: Form me se saari values nikaali (HTML ke hisab se update kiya hai)
+            const formData = {
+                fullName: document.getElementById('full-name').value,
+                contactNumber: document.getElementById('contact-number').value,
+                bloodGroup: document.getElementById('blood-group').value,
+                disease: document.getElementById('disease').value, // Naya field add kiya
+                availableFrom: document.getElementById('available-from').value,
+                availableTill: document.getElementById('available-till').value,
+                state: document.getElementById('state').value, // Naya field add kiya
+                city: document.getElementById('city').value,
+                area: document.getElementById('area').value,
+                landmark: document.getElementById('landmark').value, // Naya field add kiya
+            };
+            
+            // lastDonation wala field yahan se hata diya hai
+
+            // Step 4: Data ko backend API par bheja
+            // IMPORTANT: Poora URL daala hai taaki koi confusion na ho
+            fetch('/api/donate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    // Agar server se error aaye to use handle kiya
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Step 5: Backend se aaye response ko handle kiya
+                if (data.message) {
+                    alert('Registration successful! Thank you for becoming a donor.');
+                    donationForm.reset(); // Form ko khaali kar diya
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please make sure the backend server is running.');
+            });
+        });
+    </script>
 </body>
 </html>

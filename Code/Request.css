@@ -83,3 +83,39 @@ body {
 }
 .individual-card .contact-btn { background: #333333; }
 .contact-btn:hover { opacity: 0.85; }
+
+/* Suggestions List Styling */
+.suggestions-list {
+    display: none; /* Shuru me hide rakho */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestion-item {
+    padding: 0.75rem;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f9f9f9;
+}
+
+/* Health Status Styling */
+.blood-info .status-ok {
+    font-weight: 700;
+    color: #28a745; /* Green color for "Healthy" */
+}
+
+.blood-info .status-warning {
+    font-weight: 700;
+    color: #ffc107; /* Yellow/Orange color for "Condition" */
+}

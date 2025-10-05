@@ -1,0 +1,152 @@
+/* =================================
+   GENERAL STYLES
+==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Gabarito', sans-serif;
+    background-color: #f9f9f9;
+    color: #333333;
+    overflow: hidden;
+}
+
+.page-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =================================
+   HEADER
+==================================== */
+.header {
+    background-color: #FFFFFF;
+    padding: 0.9375rem 8%;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a { display: flex; }
+.logo img { height: 2.5rem; }
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2.1875rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover { color: #B22222; }
+
+.support-us-btn {
+    background-color: #B22222;
+    color: #FFFFFF !important;
+    padding: 0.6em 1.20em;
+    border-radius: 0.5rem;
+    border: 2px solid #B22222;
+    transition: all 0.3s ease;
+}
+
+.support-us-btn:hover {
+    background-color: #ffffff;
+    color: #B22222 !important;
+}
+
+/* =================================
+   LOGIN FORM STYLING
+==================================== */
+.login-main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-card {
+    background: #FFFFFF;
+    padding: 3rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.login-header h1 {
+    font-size: 2.5rem;
+    color: #B22222;
+    margin-bottom: 0.75rem;
+}
+
+.login-header p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-family: 'Gabarito', sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #B22222;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #B22222;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #c82828;
+    transform: translateY(-2px);
+}

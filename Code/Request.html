@@ -15,8 +15,8 @@
         <header class="header">
             <div class="header-content">
                 <div class="logo">
-                    <a href="./Home.html">
-                        <img src="../Docs/RaktSetu Logo red.png" alt="RaktSetu Logo">
+                    <a href="./index.html">
+                        <img src="assets//RaktSetu Logo red.png" alt="RaktSetu Logo">
                     </a>
                 </div>
                 <nav class="main-nav">
@@ -32,58 +32,151 @@
         <main class="main-content">
             <section class="filter-bar">
                 <div class="search-input-group">
-                    <input type="text" placeholder="Search your requirement">
+                    <input type="text" placeholder="Search by name, area, or city">
                     <button class="search-icon-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
                     </button>
+                    <div class="suggestions-list" id="suggestions-list"></div>
                 </div>
-                <select><option>Blood Type</option></select>
-                <select><option>City</option></select>
-                <select><option>State</option></select>
-                <select><option>Sort by</option></select>
+                <select id="blood-type-filter">
+                    <option value="">Blood Type</option>
+                    <option value="A+">A+</option><option value="A-">A-</option><option value="B+">B+</option><option value="B-">B-</option><option value="AB+">AB+</option><option value="AB-">AB-</option><option value="O+">O+</option><option value="O-">O-</option>
+                </select>
+                <select id="city-filter">
+                    <option value="">City</option>
+                    <option value="Surat">Surat</option><option value="Mumbai">Mumbai</option><option value="Delhi">Delhi</option><option value="Bangalore">Bangalore</option>
+                </select>
+                <select id="state-filter">
+                    <option value="">State</option>
+                    <option value="Gujarat">Gujarat</option><option value="Maharashtra">Maharashtra</option><option value="Delhi">Delhi</option><option value="Karnataka">Karnataka</option>
+                </select>
+                <select id="sort-by-filter"><option value="">Sort by</option></select>
             </section>
 
             <section class="results-container">
                 <div class="results-category">
                     <h2>Best hospitals near you</h2>
-                    <div class="card-grid">
-                        <div class="donor-card hospital-card">
-                            <div class="card-header">
-                                <h3 class="donor-name">City Hospital</h3>
-                                <div class="rating"><span>4.5</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg></div>
-                            </div>
-                            <p class="location">Adajan, Surat</p>
-                            <div class="blood-info"><span>O+: Available</span><span>A-: Low Stock</span></div>
-                            <a href="#" class="contact-btn">Contact Hospital</a>
+                    <div class="card-grid" id="hospitals-grid">
                         </div>
-                        <div class="donor-card hospital-card">
-                            <div class="card-header"><h3 class="donor-name">Life Care Blood Bank</h3><div class="rating"><span>4.8</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg></div></div>
-                            <p class="location">Varachha, Surat</p>
-                            <div class="blood-info"><span>B+: Available</span><span>AB+: Available</span></div>
-                            <a href="#" class="contact-btn">Contact Hospital</a>
-                        </div>
-                         <div class="donor-card hospital-card">
-                            <div class="card-header"><h3 class="donor-name">Unity Hospital</h3><div class="rating"><span>4.2</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg></div></div>
-                            <p class="location">Vesu, Surat</p>
-                            <div class="blood-info"><span>All Groups</span></div>
-                            <a href="#" class="contact-btn">Contact Hospital</a>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="results-category">
                     <h2>Best individuals near you</h2>
-                    <div class="card-grid">
-                        <div class="donor-card individual-card">
-                            <div class="card-header"><h3 class="donor-name">Nirav C.</h3><span class="blood-type">A+</span></div>
-                            <p class="location">Adajan, Surat</p>
-                            <div class="blood-info"><p>Available for Donation</p></div>
-                            <a href="#" class="contact-btn">Send Request</a>
+                    <div class="card-grid" id="individuals-grid">
                         </div>
-                    </div>
                 </div>
             </section>
         </main>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('.search-input-group input');
+            const searchButton = document.querySelector('.search-icon-btn');
+            const bloodTypeFilter = document.getElementById('blood-type-filter');
+            const cityFilter = document.getElementById('city-filter');
+            const stateFilter = document.getElementById('state-filter');
+            
+            // Dono functions ko call kiya
+            fetchAndDisplayData();
+
+            // Har filter change par dono functions call honge
+            searchButton.addEventListener('click', fetchAndDisplayData);
+            searchInput.addEventListener('keyup', (e) => { if (e.key === 'Enter') fetchAndDisplayData(); });
+            bloodTypeFilter.addEventListener('change', fetchAndDisplayData);
+            cityFilter.addEventListener('change', fetchAndDisplayData);
+            stateFilter.addEventListener('change', fetchAndDisplayData);
+            
+            // Suggestions wali functionality
+            // ... (yeh code waisa hi rahega) ...
+        });
+
+        function fetchAndDisplayData() {
+            fetchIndividualDonors();
+            fetchHospitals();
+        }
+
+        function fetchIndividualDonors() {
+            const searchValue = document.querySelector('.search-input-group input').value;
+            const bloodTypeValue = document.getElementById('blood-type-filter').value;
+            const cityValue = document.getElementById('city-filter').value;
+            const stateValue = document.getElementById('state-filter').value;
+
+            let apiUrl = `/api/donors?`;
+            if (searchValue) apiUrl += `search=${searchValue}&`;
+            if (bloodTypeValue) apiUrl += `bloodGroup=${bloodTypeValue}&`;
+            if (cityValue) apiUrl += `city=${cityValue}&`;
+            if (stateValue) apiUrl += `state=${stateValue}&`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(donors => {
+                    const individualGrid = document.querySelector('#individuals-grid');
+                    individualGrid.innerHTML = '';
+
+                    if (donors.length === 0) {
+                        individualGrid.innerHTML = '<p>No donors found.</p>';
+                        return;
+                    }
+
+                    donors.forEach(donor => {
+                        const diseaseStatusText = donor.disease === 'Yes' ? 'Has Medical Condition' : 'Healthy for Donation';
+                        const diseaseStatusClass = donor.disease === 'Yes' ? 'status-warning' : 'status-ok';
+                        const donorCardHTML = `
+                            <div class="donor-card individual-card">
+                                <div class="card-header"><h3 class="donor-name">${donor.fullName}</h3><span class="blood-type">${donor.bloodGroup}</span></div>
+                                <p class="location">${donor.area}, ${donor.city}</p>
+                                <div class="blood-info"><p class="${diseaseStatusClass}">${diseaseStatusText}</p></div>
+                                <a href="./donor-details.html?id=${donor._id}" class="contact-btn">Send Request</a>
+                            </div>
+                        `;
+                        individualGrid.insertAdjacentHTML('beforeend', donorCardHTML);
+                    });
+                })
+                .catch(error => console.error('Error fetching donors:', error));
+        }
+
+        function fetchHospitals() {
+            const searchValue = document.querySelector('.search-input-group input').value;
+            const cityValue = document.getElementById('city-filter').value;
+            const stateValue = document.getElementById('state-filter').value;
+
+            let apiUrl = `/api/hospitals?`;
+            if (searchValue) apiUrl += `search=${searchValue}&`;
+            if (cityValue) apiUrl += `city=${cityValue}&`;
+            if (stateValue) apiUrl += `state=${stateValue}&`;
+
+            fetch(apiUrl)
+        .then(response => response.json())
+        .then(hospitals => {
+            const hospitalGrid = document.querySelector('#hospitals-grid');
+            hospitalGrid.innerHTML = ''; 
+
+            if (hospitals.length === 0) {
+                hospitalGrid.innerHTML = '<p>No hospitals found.</p>';
+                return;
+            }
+
+            hospitals.forEach(hospital => {
+                // YEH LINE CHANGE KARNI HAI
+                const bloodGroups = Object.keys(hospital.availableBlood).map(group => `<span>${group}</span>`).join('');
+
+                const hospitalCardHTML = `
+                    <div class="donor-card hospital-card">
+                        <div class="card-header">
+                            <h3 class="donor-name">${hospital.name}</h3>
+                            <div class="rating"><span>${hospital.rating}</span><svg ...></svg></div>
+                        </div>
+                        <p class="location">${hospital.location.city}, ${hospital.location.state}</p>
+                        <div class="blood-info">${bloodGroups}</div>
+                        <a href="./hospital-details.html?id=${hospital._id}" class="contact-btn">View Details</a>
+                    </div>
+                `;
+                hospitalGrid.insertAdjacentHTML('beforeend', hospitalCardHTML);
+                    });
+                })
+                .catch(error => console.error('Error fetching hospitals:', error));
+        }
+    </script>
 </body>
 </html>

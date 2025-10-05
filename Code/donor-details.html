@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Details - RaktSetu</title>
+    <link rel="stylesheet" href="donor-details.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="./index.html">
+                        <img src="assets/RaktSetu Logo red.png" alt="RaktSetu Logo">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="./Contact.html">Contact</a></li>
+                        <li><a href="./About.html">About</a></li>
+                        <li><a href="./support.html" class="support-us-btn">Support Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="details-card">
+                <div class="card-header">
+                    <div class="donor-photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+                    </div>
+                    <h1 id="donor-name">Loading...</h1>
+                    <div class="blood-group-tag" id="donor-blood-group">--</div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item"><h3>Contact Number</h3><p id="donor-contact">-</p></div>
+                    <div class="info-item"><h3>Location</h3><p id="donor-location">-</p></div>
+                    <div class="info-item"><h3>Landmark</h3><p id="donor-landmark">-</p></div>
+                    <div class="info-item"><h3>Known Disease</h3><p id="donor-disease">-</p></div>
+                    <div class="info-item"><h3>Available From</h3><p id="donor-available-from">-</p></div>
+                    <div class="info-item"><h3>Available Till</h3><p id="donor-available-till">-</p></div>
+                </div>
+            </div>
+            
+            <a href="javascript:history.back()" class="back-button">← Go Back</a>
+        </main>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const donorId = params.get('id');
+
+            if (donorId) {
+                fetch(`/api/donors/${donorId}`)
+                    .then(response => response.json())
+                    .then(donor => {
+                        document.getElementById('donor-name').textContent = donor.fullName || '-';
+                        document.getElementById('donor-blood-group').textContent = donor.bloodGroup || '-';
+                        document.getElementById('donor-contact').textContent = donor.contactNumber || '-';
+                        document.getElementById('donor-location').textContent = `${donor.area || ''}, ${donor.city || ''}`;
+                        document.getElementById('donor-landmark').textContent = donor.landmark || '-';
+                        document.getElementById('donor-disease').textContent = donor.disease || 'No';
+                        document.getElementById('donor-available-from').textContent = donor.availableFrom ? new Date(donor.availableFrom).toLocaleDateString() : '-';
+                        document.getElementById('donor-available-till').textContent = donor.availableTill ? new Date(donor.availableTill).toLocaleDateString() : '-';
+                    })
+                    .catch(err => {
+                        console.error('Failed to load donor details:', err);
+                        document.querySelector('.details-card').innerHTML = '<h1>Donor details could not be loaded.</h1>';
+                    });
+            }
+        });
+    </script>
+</body>
+</html>

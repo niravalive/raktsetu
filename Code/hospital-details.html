@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Details - RaktSetu</title>
+    <link rel="stylesheet" href="hospital-details.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+         <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="./index.html">
+                        <img src="assets/RaktSetu Logo red.png" alt="RaktSetu Logo">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="./Contact.html">Contact</a></li>
+                        <li><a href="./About.html">About</a></li>
+                        <li><a href="./support.html" class="support-us-btn">Support Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="hospital-details-card">
+                <div class="card-image-container">
+                    <img id="hospital-image" src="" alt="Hospital Image">
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h1 id="hospital-name">Loading...</h1>
+                        <div class="rating" id="hospital-rating"></div>
+                    </div>
+                    <p class="location" id="hospital-location">Loading...</p>
+
+                    <div class="details-section">
+                        <h3>Available Blood Stock</h3>
+                        <div class="blood-stock-grid" id="blood-stock-grid">
+                            </div>
+                    </div>
+
+                    <div class="details-section">
+                        <h3>Contact Information</h3>
+                        <div class="contacts-list" id="contacts-list">
+                            </div>
+                    </div>
+
+                    <div class="details-section">
+                        <h3>Location Map</h3>
+                        <div class="map-container">
+                            <iframe id="hospital-map" src="" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="javascript:history.back()" class="back-button">← Go Back</a>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const hospitalId = params.get('id');
+
+            if (hospitalId) {
+                fetch(`/api/hospitals/${hospitalId}`)
+                    .then(response => response.json())
+                    .then(hospital => {
+                        // Populate basic details
+                        document.getElementById('hospital-image').src = hospital.image;
+                        document.getElementById('hospital-name').textContent = hospital.name;
+                        document.getElementById('hospital-location').textContent = `${hospital.location.area}, ${hospital.location.city}, ${hospital.location.state}`;
+                        document.getElementById('hospital-rating').innerHTML = `<span>${hospital.rating}</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>`;
+                        document.getElementById('hospital-map').src = hospital.mapUrl;
+
+                        // Populate blood stock
+                        const bloodGrid = document.getElementById('blood-stock-grid');
+                        for (const group in hospital.availableBlood) {
+                            const status = hospital.availableBlood[group];
+                            const stockItem = document.createElement('div');
+                            stockItem.className = `stock-item ${status.toLowerCase().replace(' ', '-')}`;
+                            stockItem.innerHTML = `<strong>${group}</strong><span>${status}</span>`;
+                            bloodGrid.appendChild(stockItem);
+                        }
+
+                        // Populate contacts
+                        const contactsList = document.getElementById('contacts-list');
+                        hospital.contacts.forEach(contact => {
+                            const contactItem = document.createElement('div');
+                            contactItem.className = 'contact-item';
+                            contactItem.innerHTML = `<p>${contact.name}: <strong>${contact.number}</strong></p>`;
+                            contactsList.appendChild(contactItem);
+                        });
+                    })
+                    .catch(err => console.error('Failed to load hospital details:', err));
+            }
+        });
+    </script>
+</body>
+</html>
