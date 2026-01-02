@@ -1,6 +1,4 @@
-/* =================================
-   GENERAL STYLES
-==================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -17,9 +15,7 @@ body {
     min-height: 100vh;
 }
 
-/* =================================
-   HEADER
-==================================== */
+
 .header {
     background-color: #FFFFFF;
     padding: 0.9375rem 8%;
@@ -35,9 +31,7 @@ body {
 .support-us-btn { background-color: #B22222; color: #FFFFFF !important; padding: 0.6em 1.20em; border-radius: 0.5rem; border: 2px solid #B22222; transition: all 0.3s ease; }
 .support-us-btn:hover { background-color: #ffffff; color: #B22222 !important; }
 
-/* =================================
-   MAIN CONTENT & FORM
-==================================== */
+
 .main-content {
     padding: 3rem 8%;
     display: flex;
@@ -66,7 +60,7 @@ body {
 .form-group input, .form-group select { padding: 0.75rem; font-size: 1rem; font-family: 'Gabarito', sans-serif; border: 1px solid #ddd; border-radius: 0.5rem; transition: border-color 0.3s ease; }
 .form-group input:focus, .form-group select:focus { outline: none; border-color: #B22222; }
 
-/* Checkbox ke liye special styling */
+
 .form-group-checkbox {
     display: flex;
     align-items: flex-start;
@@ -74,7 +68,7 @@ body {
     background: #f9f9f9;
     padding: 1rem;
     border-radius: 0.5rem;
-    position: relative; /* Custom checkbox ke liye zaroori */
+    position: relative;
     cursor: pointer;
 }
 .form-group-checkbox input[type="checkbox"] {
@@ -87,7 +81,7 @@ body {
     font-size: 0.9rem;
     line-height: 1.5;
     color: #555;
-    padding-left: 2rem; /* Naye box ke liye jagah banayi */
+    padding-left: 2rem; 
 }
 
 .form-group-checkbox label::before {
@@ -108,7 +102,7 @@ body {
     border-color: #B22222;
 }
 
-/* Naya custom checkmark (tick) banaya */
+
 .form-group-checkbox label::after {
     content: '';
     position: absolute;
@@ -119,11 +113,10 @@ body {
     border: solid white;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
-    opacity: 0; /* Shuru me hide rakha */
+    opacity: 0; 
     transition: opacity 0.2s ease;
 }
 
-/* Jab check ho, to checkmark dikhao */
 .form-group-checkbox input[type="checkbox"]:checked + label::after {
     opacity: 1;
 }

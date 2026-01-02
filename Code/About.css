@@ -12,7 +12,6 @@ body {
     font-family: 'Gabarito', sans-serif;
     background-color: #f9f9f9;
     color: #333333;
-    /* Yeh page ko non-scrollable banayega */
     overflow: hidden; 
 }
 
@@ -22,7 +21,7 @@ body {
     flex-direction: column;
 }
 
-/* Header (Tumhare Home page se liya hai) */
+
 .header {
     background-color: #FFFFFF;
     padding: 0.9375rem 8%;
@@ -73,12 +72,12 @@ body {
     border-color: #B22222;
 }
 
-/* About Page ka Main Content */
+
 .about-main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Content ko vertically center karega */
+    justify-content: center; 
     align-items: center;
     text-align: center;
     padding: 2rem;
@@ -106,7 +105,7 @@ body {
     max-width: 1100px;
 }
 
-/* Yeh container chaaron members ko ek line me rakhega */
+
 .team-container {
     display: flex;
     justify-content: center;
@@ -120,7 +119,7 @@ body {
     border-radius: 0.5rem;
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 220px; /* Sabka width same rakha hai */
+    width: 220px; 
 }
 
 .team-member-card:hover {

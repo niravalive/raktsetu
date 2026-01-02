@@ -14,7 +14,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header */
+
 .header {
     background-color: #FFFFFF;
     padding: 0.9375rem 8%;
@@ -29,8 +29,7 @@ body {
 }
 
 .logo a {
-    display: flex; /* Ensures image inside link behaves well */
-}
+    display: flex; }
 .logo img {
     height: 2.5rem;
 }
@@ -84,9 +83,8 @@ body {
 .individual-card .contact-btn { background: #333333; }
 .contact-btn:hover { opacity: 0.85; }
 
-/* Suggestions List Styling */
 .suggestions-list {
-    display: none; /* Shuru me hide rakho */
+    display: none; 
     position: absolute;
     top: 100%;
     left: 0;
@@ -109,13 +107,13 @@ body {
     background-color: #f9f9f9;
 }
 
-/* Health Status Styling */
+
 .blood-info .status-ok {
     font-weight: 700;
-    color: #28a745; /* Green color for "Healthy" */
+    color: #28a745; 
 }
 
 .blood-info .status-warning {
     font-weight: 700;
-    color: #ffc107; /* Yellow/Orange color for "Condition" */
+    color: #ffc107; 
 }

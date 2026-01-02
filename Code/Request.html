@@ -77,18 +77,15 @@
             const cityFilter = document.getElementById('city-filter');
             const stateFilter = document.getElementById('state-filter');
             
-            // Dono functions ko call kiya
             fetchAndDisplayData();
 
-            // Har filter change par dono functions call honge
             searchButton.addEventListener('click', fetchAndDisplayData);
             searchInput.addEventListener('keyup', (e) => { if (e.key === 'Enter') fetchAndDisplayData(); });
             bloodTypeFilter.addEventListener('change', fetchAndDisplayData);
             cityFilter.addEventListener('change', fetchAndDisplayData);
             stateFilter.addEventListener('change', fetchAndDisplayData);
             
-            // Suggestions wali functionality
-            // ... (yeh code waisa hi rahega) ...
+            
         });
 
         function fetchAndDisplayData() {
