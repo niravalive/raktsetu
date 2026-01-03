@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/backend/functions/$1.js" },
+    { "source": "/(.*)", "destination": "/Code/$1" }
+  ]
+}

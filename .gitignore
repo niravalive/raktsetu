@@ -1,4 +1,19 @@
-.DS_Store
+# Dependency folders
+node_modules/
 
-# Local Netlify folder
-.netlify
+# Environment variables (Security!)
+.env
+.env.local
+
+# Build output
+dist/
+build/
+.cache/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Tool specific
+.netlify/
+.vercel/
