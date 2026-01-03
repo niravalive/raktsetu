@@ -1,19 +1,16 @@
-# Dependency folders
+# Dependency folders (Ye sabse zaruri hai)
 node_modules/
 
-# Environment variables (Security!)
+# Environment variables (Security ke liye)
 .env
 .env.local
 
-# Build output
+# Build outputs
 dist/
 build/
-.cache/
+.netlify/
+.vercel/
 
 # System files
 .DS_Store
 Thumbs.db
-
-# Tool specific
-.netlify/
-.vercel/
